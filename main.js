@@ -7,13 +7,13 @@ let tray, window;
 const createWindow = () =>  {
   // Create the browser window.
   window = new BrowserWindow({
-    width: 420,
-    height: 560,
-    show: false,
-    frame: false,
-    fullscreenable: false,
-    resizable: false,
-    transparent: true,
+    width: 582,
+    height: 601,
+    show: true,
+    frame: true,
+    fullscreenable: true,
+    resizable: true,
+    transparent: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -33,7 +33,7 @@ const createTray = () => {
 
   tray = new Tray(newImage);
   tray.setToolTip('Palabreador');
-  tray.on('click', (event) => {
+  tray.on('click', (e) => {
     window.isVisible() ? window.hide() : window.show();
   });
 }
